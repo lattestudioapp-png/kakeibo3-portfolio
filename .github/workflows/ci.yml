@@ -1,0 +1,58 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Build & Unit Test
+    # 【2026-10-18 原因調査で確認・1回目の修正では不十分だったことも確認】
+    # macos-15ランナーには元々Xcode 26.3しか入っておらず、「ランナー上で最新のXcodeを
+    # 選ぶ」という1回目の対策(後述)は、選択肢自体が26.3しか無かったため効果が無かった
+    # (2回目のCI実行でも全く同じクラッシュが同じ箇所で再現したことを確認済み)。
+    # Xcode 26.3はswiftlang/swift#84793(async関数のスタック確保コード生成バグ。
+    # Xcode 26.0.1以降で混入し、後のXcodeで修正済み。"malloc: pointer being freed was
+    # not allocated"というクラッシュを起こす既知の不具合)の影響を受ける。GitHubの
+    # macos-26ランナーイメージはXcode 26.6がデフォルトであり、修正版を含む可能性が
+    # 高いため、ランナー自体をmacos-26に切り替える。
+    runs-on: macos-26
+    timeout-minutes: 60
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # ランナー上に実際にインストールされているXcodeの中から、バージョン番号で
+      # 最も新しいものを明示的に選ぶ(setup-xcodeのタグや個々のランナーイメージの
+      # デフォルト設定に依存しない。将来さらに新しいツールチェーンバグが見つかった
+      # 場合の保険としても機能する)。
+      - name: List installed Xcode versions
+        run: ls -d /Applications/Xcode*.app
+
+      - name: Select newest installed Xcode
+        run: |
+          NEWEST=$(ls -d /Applications/Xcode*.app | sort -V | tail -1)
+          echo "Selecting $NEWEST"
+          sudo xcode-select -s "$NEWEST"
+
+      - name: Show Xcode version
+        run: xcodebuild -version
+
+      - name: Resolve Swift Package dependencies
+        run: xcodebuild -resolvePackageDependencies -project kakeibo3.xcodeproj -scheme kakeibo3
+
+      # シミュレータ上でのテストのためコード署名は不要(実機ビルドではないため、
+      # 実Apple Developerチームの証明書をCIへ持ち込む必要がない)。
+      - name: Run unit tests (kakeibo3Tests)
+        run: |
+          set -o pipefail
+          xcodebuild test \
+            -project kakeibo3.xcodeproj \
+            -scheme kakeibo3 \
+            -destination 'platform=iOS Simulator,name=iPhone 17,OS=latest' \
+            -only-testing:kakeibo3Tests \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO

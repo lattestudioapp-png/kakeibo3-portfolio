@@ -1,0 +1,35 @@
+{
+  "configurations" : [
+    {
+      "id" : "8F3A1C2D-6B4E-4A7F-9C1D-2E5F7A8B9C0D",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:kakeibo3.xcodeproj",
+      "identifier" : "9085A2602FCA75F600E102BA",
+      "name" : "kakeibo3"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:kakeibo3.xcodeproj",
+        "identifier" : "73C8EB5BB682575EC87A171A",
+        "name" : "kakeibo3Tests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:kakeibo3.xcodeproj",
+        "identifier" : "5310F88053FC3FCDCEAB11B9",
+        "name" : "kakeibo3UITests"
+      }
+    }
+  ],
+  "version" : 1
+}

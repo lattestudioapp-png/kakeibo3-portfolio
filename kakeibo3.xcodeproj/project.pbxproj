@@ -1,0 +1,616 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		90F9F4E32FF6E9C200F28D09 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 90F9F4E22FF6E9C200F28D09 /* GoogleMobileAds */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5D2CCE8038A39D5E0853964B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9085A2592FCA75F600E102BA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9085A2602FCA75F600E102BA;
+			remoteInfo = kakeibo3;
+		};
+		A3C6439EDC106B45DFB81DF8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9085A2592FCA75F600E102BA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9085A2602FCA75F600E102BA;
+			remoteInfo = kakeibo3;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		30877432D1026706D7E805DA /* kakeibo3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kakeibo3Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EEB8A1EC9332A30A983694D /* kakeibo3UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kakeibo3UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9085A2612FCA75F600E102BA /* kakeibo3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kakeibo3.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		903F8CDD2FCF9B7D00D35F08 /* Exceptions for "kakeibo3" folder in "kakeibo3" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Utilities/ViewKeyboardExtension.swift,
+			);
+			target = 9085A2602FCA75F600E102BA /* kakeibo3 */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		903F8CDE2FCF9B7D00D35F08 /* Exceptions for "kakeibo3" folder in "Copy Bundle Resources" phase from "kakeibo3" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 9085A25F2FCA75F600E102BA /* Resources */;
+			membershipExceptions = (
+				Utilities/ViewKeyboardExtension.swift,
+			);
+		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		1B428F3E50E86C2C5F2CA963 /* kakeibo3UITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = kakeibo3UITests;
+			sourceTree = "<group>";
+		};
+		846A32C3BB81E3C29B621792 /* kakeibo3Tests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = kakeibo3Tests;
+			sourceTree = "<group>";
+		};
+		9085A2632FCA75F600E102BA /* kakeibo3 */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				903F8CDD2FCF9B7D00D35F08 /* Exceptions for "kakeibo3" folder in "kakeibo3" target */,
+				903F8CDE2FCF9B7D00D35F08 /* Exceptions for "kakeibo3" folder in "Copy Bundle Resources" phase from "kakeibo3" target */,
+			);
+			path = kakeibo3;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8FC9D640075FCC2EFB086DFE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9085A25E2FCA75F600E102BA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90F9F4E32FF6E9C200F28D09 /* GoogleMobileAds in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBEE3772A077021721A278F6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9085A2582FCA75F600E102BA = {
+			isa = PBXGroup;
+			children = (
+				9085A2632FCA75F600E102BA /* kakeibo3 */,
+				846A32C3BB81E3C29B621792 /* kakeibo3Tests */,
+				1B428F3E50E86C2C5F2CA963 /* kakeibo3UITests */,
+				9085A2622FCA75F600E102BA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9085A2622FCA75F600E102BA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9085A2612FCA75F600E102BA /* kakeibo3.app */,
+				30877432D1026706D7E805DA /* kakeibo3Tests.xctest */,
+				7EEB8A1EC9332A30A983694D /* kakeibo3UITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5310F88053FC3FCDCEAB11B9 /* kakeibo3UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 54400DF255CE3A0B835A2D42 /* Build configuration list for PBXNativeTarget "kakeibo3UITests" */;
+			buildPhases = (
+				2A1804225F969F1A6E7C618C /* Sources */,
+				8FC9D640075FCC2EFB086DFE /* Frameworks */,
+				DE1589CABA552ABB45DEB93F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D49FC08FBF54A2989D5E52E2 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				1B428F3E50E86C2C5F2CA963 /* kakeibo3UITests */,
+			);
+			name = kakeibo3UITests;
+			productName = kakeibo3UITests;
+			productReference = 7EEB8A1EC9332A30A983694D /* kakeibo3UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		73C8EB5BB682575EC87A171A /* kakeibo3Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 12DA86A78C49EA20E32684B2 /* Build configuration list for PBXNativeTarget "kakeibo3Tests" */;
+			buildPhases = (
+				50AF03B971722F244F58D669 /* Sources */,
+				CBEE3772A077021721A278F6 /* Frameworks */,
+				4F7FD633DBDDE131CA3766E4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C826A6FCE48478DCB74F2134 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				846A32C3BB81E3C29B621792 /* kakeibo3Tests */,
+			);
+			name = kakeibo3Tests;
+			productName = kakeibo3Tests;
+			productReference = 30877432D1026706D7E805DA /* kakeibo3Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9085A2602FCA75F600E102BA /* kakeibo3 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9085A26E2FCA75F700E102BA /* Build configuration list for PBXNativeTarget "kakeibo3" */;
+			buildPhases = (
+				9085A25D2FCA75F600E102BA /* Sources */,
+				9085A25E2FCA75F600E102BA /* Frameworks */,
+				9085A25F2FCA75F600E102BA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				9085A2632FCA75F600E102BA /* kakeibo3 */,
+			);
+			name = kakeibo3;
+			packageProductDependencies = (
+				90F9F4E22FF6E9C200F28D09 /* GoogleMobileAds */,
+			);
+			productName = kakeibo3;
+			productReference = 9085A2612FCA75F600E102BA /* kakeibo3.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9085A2592FCA75F600E102BA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2640;
+				LastUpgradeCheck = 2640;
+				TargetAttributes = {
+					5310F88053FC3FCDCEAB11B9 = {
+						CreatedOnToolsVersion = 26.4.1;
+						TestTargetID = 9085A2602FCA75F600E102BA;
+					};
+					73C8EB5BB682575EC87A171A = {
+						CreatedOnToolsVersion = 26.4.1;
+						TestTargetID = 9085A2602FCA75F600E102BA;
+					};
+					9085A2602FCA75F600E102BA = {
+						CreatedOnToolsVersion = 26.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 9085A25C2FCA75F600E102BA /* Build configuration list for PBXProject "kakeibo3" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				ja,
+			);
+			mainGroup = 9085A2582FCA75F600E102BA;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				90F9F4E12FF6E9C200F28D09 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 9085A2622FCA75F600E102BA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9085A2602FCA75F600E102BA /* kakeibo3 */,
+				73C8EB5BB682575EC87A171A /* kakeibo3Tests */,
+				5310F88053FC3FCDCEAB11B9 /* kakeibo3UITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4F7FD633DBDDE131CA3766E4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9085A25F2FCA75F600E102BA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE1589CABA552ABB45DEB93F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2A1804225F969F1A6E7C618C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50AF03B971722F244F58D669 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9085A25D2FCA75F600E102BA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C826A6FCE48478DCB74F2134 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9085A2602FCA75F600E102BA /* kakeibo3 */;
+			targetProxy = 5D2CCE8038A39D5E0853964B /* PBXContainerItemProxy */;
+		};
+		D49FC08FBF54A2989D5E52E2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9085A2602FCA75F600E102BA /* kakeibo3 */;
+			targetProxy = A3C6439EDC106B45DFB81DF8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1F4AEFBB6E04F47729FA2839 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D2V2VV972P;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kusumoto.kakeibo3.kakeibo3UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = kakeibo3;
+			};
+			name = Debug;
+		};
+		62C00EEDD19F5359FC591CE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D2V2VV972P;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kusumoto.kakeibo3.kakeibo3UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = kakeibo3;
+			};
+			name = Release;
+		};
+		9085A26C2FCA75F700E102BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9085A26D2FCA75F700E102BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9085A26F2FCA75F700E102BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = kakeibo3/kakeibo3.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D2V2VV972P;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kusumoto.kakeibo3;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9085A2702FCA75F700E102BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = kakeibo3/kakeibo3.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D2V2VV972P;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kusumoto.kakeibo3;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D58E72E310275DFF6C15C0C8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D2V2VV972P;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kusumoto.kakeibo3.kakeibo3Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kakeibo3.app/kakeibo3";
+			};
+			name = Debug;
+		};
+		E9DF469611A11F5125227C37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D2V2VV972P;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kusumoto.kakeibo3.kakeibo3Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kakeibo3.app/kakeibo3";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		12DA86A78C49EA20E32684B2 /* Build configuration list for PBXNativeTarget "kakeibo3Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D58E72E310275DFF6C15C0C8 /* Debug */,
+				E9DF469611A11F5125227C37 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		54400DF255CE3A0B835A2D42 /* Build configuration list for PBXNativeTarget "kakeibo3UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F4AEFBB6E04F47729FA2839 /* Debug */,
+				62C00EEDD19F5359FC591CE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9085A25C2FCA75F600E102BA /* Build configuration list for PBXProject "kakeibo3" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9085A26C2FCA75F700E102BA /* Debug */,
+				9085A26D2FCA75F700E102BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9085A26E2FCA75F700E102BA /* Build configuration list for PBXNativeTarget "kakeibo3" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9085A26F2FCA75F700E102BA /* Debug */,
+				9085A2702FCA75F700E102BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		90F9F4E12FF6E9C200F28D09 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 13.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		90F9F4E22FF6E9C200F28D09 /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 90F9F4E12FF6E9C200F28D09 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 9085A2592FCA75F600E102BA /* Project object */;
+}

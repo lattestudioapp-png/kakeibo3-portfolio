@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23605" systemVersion="24A335" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <!--
+      CloudKit互換のため、全エンティティ・全属性を optional="YES" にしている
+      （NSPersistentCloudKitContainerの要件：属性はoptionalかdefault値必須、
+      一意制約は使用不可）。既存のSwiftDataモデルにあった非optional/@Attribute(.unique)は
+      ここでは表現せず、Swift側のマッピング層（CD<Name> -> 既存の値型/DTO）で
+      nilガード・fetch-or-create方式のユニーク性担保を行う。
+      リレーションシップは使わず、既存のSwiftDataモデルと同じ「素のUUID外部キー」を
+      そのままフラットな属性として保持する（既存ロジックとの1:1対応を優先）。
+    -->
+    <entity name="ExpenseData" representedClassName="CDExpenseData" syncable="YES" codeGenerationType="class">
+        <attribute name="amount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="bankAccountId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="bookId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="category" optional="YES" attributeType="String"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="fixedExpenseId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isInTrash" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="isTestData" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="memo" optional="YES" attributeType="String"/>
+        <attribute name="paymentMethod" optional="YES" attributeType="String"/>
+        <attribute name="receiptImagePath" optional="YES" attributeType="String"/>
+        <attribute name="trashedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="IncomeData" representedClassName="CDIncomeData" syncable="YES" codeGenerationType="class">
+        <attribute name="amount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="bankAccountId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="bookId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="category" optional="YES" attributeType="String"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isInTrash" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="isTestData" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="memo" optional="YES" attributeType="String"/>
+        <attribute name="receiptImagePath" optional="YES" attributeType="String"/>
+        <attribute name="receiveMethod" optional="YES" attributeType="String"/>
+        <attribute name="recurringIncomeId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="trashedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="BookData" representedClassName="CDBookData" syncable="YES" codeGenerationType="class">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isArchived" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="isMain" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="sortOrder" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="CategoryData" representedClassName="CDCategoryData" syncable="YES" codeGenerationType="class">
+        <attribute name="bookId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="colorHex" optional="YES" attributeType="String"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isProtected" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="isSuspended" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="isTestData" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="sortOrder" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="BudgetData" representedClassName="CDBudgetData" syncable="YES" codeGenerationType="class">
+        <attribute name="amount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="bookId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="categoryName" optional="YES" attributeType="String"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isTestData" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="month" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="year" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="RecurringBudgetData" representedClassName="CDRecurringBudgetData" syncable="YES" codeGenerationType="class">
+        <attribute name="amount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="bookId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="categoryName" optional="YES" attributeType="String"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isEnabled" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="PaymentMethodSettingData" representedClassName="CDPaymentMethodSettingData" syncable="YES" codeGenerationType="class">
+        <attribute name="adjustPaymentDateToNextBusinessDay" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <attribute name="assetInitialBalance" optional="YES" attributeType="Double" usesScalarValueType="NO"/>
+        <attribute name="assetInitialBalanceExpenseId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="assetInitialBalanceIncomeId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="bankAccount" optional="YES" attributeType="String"/>
+        <attribute name="bookId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="closingDay" optional="YES" attributeType="Integer 64" usesScalarValueType="NO"/>
+        <attribute name="colorHex" optional="YES" attributeType="String"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="holidayAdjustment" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="includeInAnalysis" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <attribute name="isActive" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <attribute name="isAsset" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="isLocked" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="isTestData" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="memo" optional="YES" attributeType="String"/>
+        <attribute name="methodName" optional="YES" attributeType="String"/>
+        <attribute name="recurringTransferSettingId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="recurringTransferSettingIds" optional="YES" attributeType="Binary"/>
+        <attribute name="showInAnalysis" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <attribute name="showInInputPicker" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <attribute name="sortOrder" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="useForReceive" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="withdrawalBankAccountId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="withdrawalDay" optional="YES" attributeType="Integer 64" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="BankAccountData" representedClassName="CDBankAccountData" syncable="YES" codeGenerationType="class">
+        <attribute name="accountName" optional="YES" attributeType="String"/>
+        <attribute name="bookId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="colorHex" optional="YES" attributeType="String"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="initialBalance" optional="YES" attributeType="Double" usesScalarValueType="NO"/>
+        <attribute name="initialBalanceIncomeId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isActive" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <attribute name="isAsset" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <attribute name="isLocked" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="isTestData" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="memo" optional="YES" attributeType="String"/>
+        <attribute name="recurringTransferSettingId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="recurringTransferSettingIds" optional="YES" attributeType="Binary"/>
+        <attribute name="showAsPaymentMethod" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <attribute name="showAsReceiveMethod" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <attribute name="showInAnalysis" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <attribute name="sortOrder" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="ReceiveMethodData" representedClassName="CDReceiveMethodData" syncable="YES" codeGenerationType="class">
+        <attribute name="bookId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isActive" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <attribute name="methodName" optional="YES" attributeType="String"/>
+        <attribute name="sortOrder" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="TransferData" representedClassName="CDTransferData" syncable="YES" codeGenerationType="class">
+        <attribute name="amount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="bookId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="feeAmount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="fromId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="fromName" optional="YES" attributeType="String"/>
+        <attribute name="fromType" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isInTrash" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="isTestData" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="memo" optional="YES" attributeType="String"/>
+        <attribute name="receiptImagePath" optional="YES" attributeType="String"/>
+        <attribute name="recurringTransferSettingId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="toId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="toName" optional="YES" attributeType="String"/>
+        <attribute name="toType" optional="YES" attributeType="String"/>
+        <attribute name="trashedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="RecurringTransferSettingData" representedClassName="CDRecurringTransferSettingData" syncable="YES" codeGenerationType="class">
+        <attribute name="amount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="bookId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="day" optional="YES" attributeType="Integer 64" defaultValueString="1" usesScalarValueType="YES"/>
+        <attribute name="fromMethodId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="fromMethodName" optional="YES" attributeType="String"/>
+        <attribute name="fromType" optional="YES" attributeType="String"/>
+        <attribute name="generatedScheduleMonths" optional="YES" attributeType="Binary"/>
+        <attribute name="holidayAdjustment" optional="YES" attributeType="String" defaultValueString="shiftLater"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isActive" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <attribute name="isLocked" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="isTestData" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="toMethodId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="toMethodName" optional="YES" attributeType="String"/>
+        <attribute name="toType" optional="YES" attributeType="String"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="FixedExpenseData" representedClassName="CDFixedExpenseData" syncable="YES" codeGenerationType="class">
+        <attribute name="amount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="bookId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="categoryName" optional="YES" attributeType="String"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="dayOfMonth" optional="YES" attributeType="Integer 64" defaultValueString="1" usesScalarValueType="YES"/>
+        <attribute name="generatedScheduleMonths" optional="YES" attributeType="Binary"/>
+        <attribute name="holidayAdjustment" optional="YES" attributeType="String" defaultValueString="shiftLater"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isActive" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <attribute name="isLocked" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="isTestData" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="memo" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="paymentMethodId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="paymentMethodType" optional="YES" attributeType="String"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="RecurringIncomeData" representedClassName="CDRecurringIncomeData" syncable="YES" codeGenerationType="class">
+        <attribute name="amount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="bookId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="categoryName" optional="YES" attributeType="String"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="dayOfMonth" optional="YES" attributeType="Integer 64" defaultValueString="1" usesScalarValueType="YES"/>
+        <attribute name="generatedScheduleMonths" optional="YES" attributeType="Binary"/>
+        <attribute name="holidayAdjustment" optional="YES" attributeType="String" defaultValueString="shiftLater"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isActive" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <attribute name="isLocked" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="isTestData" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="memo" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="receiveMethodId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="receiveMethodType" optional="YES" attributeType="String"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="DailySnapshot" representedClassName="CDDailySnapshot" syncable="YES" codeGenerationType="class">
+        <attribute name="bookId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="creditCardExpenseTotal" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="expenseTotal" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="incomeTotal" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="transactionCount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="transferFeeTotal" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="MonthlySnapshot" representedClassName="CDMonthlySnapshot" syncable="YES" codeGenerationType="class">
+        <attribute name="bookId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="carryoverBalance" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="creditCardExpenseTotal" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="expenseTotal" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="incomeTotal" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="month" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="rawCarryoverBalance" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="transferFeeTotal" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="year" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="yearMonth" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="AnalysisMonthlySnapshot" representedClassName="CDAnalysisMonthlySnapshot" syncable="YES" codeGenerationType="class">
+        <attribute name="bookId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="carryoverBalance" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="creditCardExpenseTotal" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="dailyCreditCardExpenseTotals" optional="YES" attributeType="Binary"/>
+        <attribute name="dailyExpenseTotals" optional="YES" attributeType="Binary"/>
+        <attribute name="dailyIncomeTotals" optional="YES" attributeType="Binary"/>
+        <attribute name="dailyTransferFeeTotals" optional="YES" attributeType="Binary"/>
+        <attribute name="displayExpenseTotal" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="displayIncomeTotal" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="expenseCategoryTotals" optional="YES" attributeType="Binary"/>
+        <attribute name="expenseTotal" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="expenseTransactionCount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="incomeCategoryTotals" optional="YES" attributeType="Binary"/>
+        <attribute name="incomeTotal" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="incomeTransactionCount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="month" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="paymentMethodTotals" optional="YES" attributeType="Binary"/>
+        <attribute name="receiveMethodTotals" optional="YES" attributeType="Binary"/>
+        <attribute name="transferFeeTotal" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="year" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="yearMonth" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="AssetGraphCacheData" representedClassName="CDAssetGraphCacheData" syncable="YES" codeGenerationType="class">
+        <attribute name="bookId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="firstDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="granularityUsed" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="lastDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="maxPointsUsed" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="points" optional="YES" attributeType="Binary"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <!--
+      ReceiptPhotoData: レシート写真のCloudKit同期用(Cloud Configuration所属)。
+      idはReceiptImageHelperが発行するファイル名(UUIDベース、グローバルに一意)をそのまま使う。
+      imageDataはallowsExternalBinaryDataStorage="YES"により、NSPersistentCloudKitContainerが
+      自動でCKAssetとして同期する(手動のCloudKit API呼び出しは行わない)。リサイズ・再圧縮は一切
+      行わず、ローカルファイルのバイト列をそのまま保持する(OCR精度優先のため)。
+    -->
+    <entity name="ReceiptPhotoData" representedClassName="CDReceiptPhotoData" syncable="YES" codeGenerationType="class">
+        <attribute name="bookId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="imageData" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="sortOrder" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="transactionId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="transactionType" optional="YES" attributeType="String"/>
+    </entity>
+    <!--
+      Cloud/Local Configuration分割（CloudKit対応Step 1）。
+      将来Cloud/Localをそれぞれ別のpersistent store（Kakeibo3Cloud.sqlite /
+      Kakeibo3Local.sqlite）に割り当てる前提の分割で、この時点ではまだ単一ストアの
+      ままアプリを動かす（CoreDataStack.swiftはこのConfigurationを一切参照していない）。
+      Cloud/Local間に一切relationshipは存在しない（このモデルはフラットなUUID外部キー
+      設計で、relationshipそのものが0件）ため、Configurationを跨ぐ参照は発生しない。
+    -->
+    <configuration name="Cloud" usedWithCloudKit="YES">
+        <memberEntity name="BookData"/>
+        <memberEntity name="ExpenseData"/>
+        <memberEntity name="IncomeData"/>
+        <memberEntity name="TransferData"/>
+        <memberEntity name="CategoryData"/>
+        <memberEntity name="PaymentMethodSettingData"/>
+        <memberEntity name="BankAccountData"/>
+        <memberEntity name="ReceiveMethodData"/>
+        <memberEntity name="BudgetData"/>
+        <memberEntity name="RecurringBudgetData"/>
+        <memberEntity name="FixedExpenseData"/>
+        <memberEntity name="RecurringIncomeData"/>
+        <memberEntity name="RecurringTransferSettingData"/>
+        <memberEntity name="ReceiptPhotoData"/>
+    </configuration>
+    <configuration name="Local">
+        <memberEntity name="DailySnapshot"/>
+        <memberEntity name="MonthlySnapshot"/>
+        <memberEntity name="AnalysisMonthlySnapshot"/>
+        <memberEntity name="AssetGraphCacheData"/>
+    </configuration>
+</model>
